@@ -1,10 +1,17 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { GithubRepositoriesModule } from './github-repositories/github-repositories.module';
+import configuration from '../configuration';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [configuration],
+    }),
+    GithubRepositoriesModule,
+  ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
