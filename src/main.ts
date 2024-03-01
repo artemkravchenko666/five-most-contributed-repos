@@ -10,7 +10,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('five-most-github')
-    .setDescription('get the most popular 5 github repos')
+    .setDescription('get 5 repos with the biggest common contributors')
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
